@@ -453,14 +453,14 @@ var Controller = (function(UICont, GameCont){
             }
             
             if(GameCont.IsGameover()){
-                document.removeEventListener('keypress', HandleMovement);
+                document.removeEventListener('keypress', HandleMovement(event));
                 alert("Gameover");
             }
     }
     
     function HandleNewGame(){
         
-        document.addEventListener('keypress', HandleMovement);
+        document.addEventListener('keypress', HandleMovement(event));
         GameCont.newGame();
         UICont.UpdateGame(GameCont.GetTilesValue(), GameCont.GetScore());
     }
